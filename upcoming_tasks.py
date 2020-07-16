@@ -127,14 +127,14 @@ def get_date(text):
     if month < today.month and month != -1:  # if the month mentioned is before the current month set the year to the next
         year = year+1
 
-    # This is slighlty different from the video but the correct version
+    
     if month == -1 and day != -1:  # if we didn't find a month, but we have a day
         if day < today.day:
             month = today.month + 1
         else:
             month = today.month
 
-    # if we only found a dta of the week
+    # if we only found a day of the week
     if month == -1 and day == -1 and day_of_week != -1:
         current_day_of_week = today.weekday()
         dif = day_of_week - current_day_of_week
@@ -146,7 +146,7 @@ def get_date(text):
 
         return today + datetime.timedelta(dif)
 
-    if day != -1:  # FIXED FROM VIDEO
+    if day != -1:  
         return datetime.date(month=month, day=day, year=year)
 
 
